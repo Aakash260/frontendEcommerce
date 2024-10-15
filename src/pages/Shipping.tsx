@@ -8,7 +8,7 @@ import { saveShippingInfo } from "../redux/reducer/cartReducer";
 import { server } from "../redux/store";
 import { CartReducerInitail } from "../types/reducer-types";
 
-const Shipping = () => {
+const Shipping: React.FC = () => {
   const { cartItems, total } = useSelector(
     (state: { cartReducer: CartReducerInitail }) => state.cartReducer
   );
@@ -57,9 +57,9 @@ const Shipping = () => {
     if (cartItems.length <= 0) return navigate("/cart");
   }, [cartItems]);
 
-  if (cartItems.length <= 0) return navigate("/cart");
-  return (
-    <div className="shipping">
+   
+
+ {return   <div className="shipping">
       <button className="back-btn" onClick={() => navigate("/cart")}>
         <BiArrowBack />
       </button>
@@ -109,7 +109,7 @@ const Shipping = () => {
         <button type="submit">Pay Now</button>
       </form>
     </div>
-  );
+  }
 };
 
 export default Shipping;
