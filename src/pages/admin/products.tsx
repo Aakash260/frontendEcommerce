@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import { CustomError } from "../../types/api-types";
 import { useSelector } from "react-redux";
 import { UserReducerInitail } from "../../types/reducer-types";
-import DashboardTable from "../../components/admin/DashboardTable";
+ 
 
 interface DataType {
   photo: ReactElement;
@@ -42,19 +42,13 @@ const columns: Column<DataType>[] = [
     accessor: "action",
   },
 ];
-
-const img =
-  "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=804";
-
-const img2 = "https://m.media-amazon.com/images/I/514T0SvwkHL._SL1500_.jpg";
-
-
+ 
 const Products = () => {
   const [rows, setRows] = useState<DataType[]>([]);
 
   const {user}=useSelector((state:{userReducer:UserReducerInitail})=>state.userReducer)
 
-  const {isLoading,isError,error,data}=useAllProductsQuery(user?._id!)
+  const {isError,error,data}=useAllProductsQuery(user?._id!)
 
 if(isError) toast.error((error as CustomError).data.message)
 

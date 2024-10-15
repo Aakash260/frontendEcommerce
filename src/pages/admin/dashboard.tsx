@@ -1,4 +1,4 @@
-import toast from "react-hot-toast";
+ 
 import { BiMaleFemale } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa";
@@ -11,7 +11,7 @@ import Table from "../../components/admin/DashboardTable";
 import { useStatsQuery } from "../../redux/api/dashboardApi";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { CustomError } from "../../types/api-types";
+ 
 import { Skeleton } from "../../components/Loader";
 import { Navigate } from "react-router-dom";
 import { getLastMonths } from "../../utils/features";

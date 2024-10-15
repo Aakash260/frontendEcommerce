@@ -3,8 +3,7 @@ import { DoughnutChart, PieChart } from "../../../components/admin/Charts";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { usePieQuery } from "../../../redux/api/dashboardApi";
-import { CustomError } from "../../../types/api-types";
-import toast from "react-hot-toast";
+ 
 import { Skeleton } from "../../../components/Loader";
 import { Navigate } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+ 
 import { FaTrash } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
@@ -41,22 +41,10 @@ const TransactionManagement = () => {
   
   
   
-  const {isLoading,data,isError,error}=useOrderDetailsQuery(params?.id!)
+  const {isLoading,data,isError}=useOrderDetailsQuery(params?.id!)
  
 const {shippingInfo:{address,city,state,country,pinCode},orderItems,user:{name},status,tax,subtotal,total,discount,shippingCharges}=data?.order || defaultData;
-
-// const orderItems:any[]=[]
-
-  const [order, setOrder] = useState({
-    name: "Puma Shoes",
-    status: "Processing",
-    subtotal: 4000,
-    discount: 1200,
-    shippingCharges: 0,
-    tax: 200,
-    total: 4000 + 200 + 0 - 1200,
-    orderItems,
-  });
+ 
 
 const [updateOrder]=useUpdateOrderMutation()
 const[deleteOrder]=useDeleteOrderMutation() 

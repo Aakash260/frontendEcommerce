@@ -8,20 +8,7 @@ import toast from "react-hot-toast";
 import { Skeleton } from "../../../components/Loader";
 import { getLastMonths } from "../../../utils/features";
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
+ 
 
 const {last12Months,last6Months}=getLastMonths();
 

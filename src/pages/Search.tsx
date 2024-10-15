@@ -35,7 +35,7 @@ toast.error(err.data.message)
 }
 //  console.log(categoriesResponse)
 
-const {isLoading:productLoading,data:searchedData,isError:productIsError,error:productError}=useSearchProductsQuery({search,sort,category,page,price:maxPrice})
+const {data:searchedData,isError:productIsError,error:productError}=useSearchProductsQuery({search,sort,category,page,price:maxPrice})
 // console.log("🚀 ~ Search ~ searchedData:", searchedData)
 
 if(productIsError){

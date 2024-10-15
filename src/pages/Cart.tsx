@@ -8,16 +8,7 @@ import { addToCart, calculatePrice, discountApplied, removeCartItem } from "../r
 import { server } from "../redux/store";
 import { CartReducerInitail } from "../types/reducer-types";
 import { CartItem } from "../types/types";
-const cartItem = [
-  {
-    productId:"skvdn",
-    photo:"https://m.media-amazon.com/images/I/71jG+e7roXL._AC_UY327_FMwebp_QL65_.jpg",
-    name:"macbook",
-    quantity:4,
-    stock:45,
-    price:80000
-  }
-];
+ 
  
 const Cart = () => {
 
