@@ -1,4 +1,14 @@
-import { User, Product, ShippingInfo, CartItem, Order, Stats, Pie, Bar, Line } from "./types";
+import {
+  User,
+  Product,
+  ShippingInfo,
+  CartItem,
+  Order,
+  Stats,
+  Pie,
+  Bar,
+  Line,
+} from "./types";
 
 export type CustomError = {
   status: number;
@@ -38,63 +48,61 @@ export type SearchProductResponse = {
   totalPage: number;
 };
 
-export type NewProductRequest={
-  id:string;
-  formData:FormData;
-}
+export type NewProductRequest = {
+  id: string;
+  formData: FormData;
+};
 
-export type UpdateProductRequest={
-  userId:string;
-  ProductId:string;
-  formData:FormData;
-}
+export type UpdateProductRequest = {
+  userId: string;
+  ProductId: string;
+  formData: FormData;
+};
 
-export type ProductResponse={
-  success:boolean,
-  product:Product
-}
+export type ProductResponse = {
+  success: boolean;
+  product: Product;
+};
 
-export type DeleteProductResponse={
-  userId:string;
-  ProductId:string;
-}
-
+export type DeleteProductResponse = {
+  userId: string;
+  ProductId: string;
+};
 
 export type SearchProductResquest = {
   price: number;
   page: number;
-category:string;
-search:string;
-sort:string;
+  category: string;
+  search: string;
+  sort: string;
 };
 
-export type NewOrderRequest={
-  shippingInfo:ShippingInfo;
- orderItems:CartItem[];
-subtotal:number;
-tax:number;
-shippingCharges:number;
-discount:number;
-total:number;
-user:string;
-}
+export type NewOrderRequest = {
+  shippingInfo: ShippingInfo;
+  orderItems: CartItem[];
+  subtotal: number;
+  tax: number;
+  shippingCharges: number;
+  discount: number;
+  total: number;
+  user: string;
+};
 
+export type DeleteUserRequest = {
+  userId: string;
+  adminUserId: string;
+};
 
-export type DeleteUserRequest={
-  userId:string,
-  adminUserId:string;
-}
-
-export type AllOrdersResponse={
-  success:boolean;
-  orders:Order[];
-}
+export type AllOrdersResponse = {
+  success: boolean;
+  orders: Order[];
+};
 
 export type OrderDetailsResponse = {
   success: boolean;
   order: Order;
 };
- 
+
 export type StatsResponse = {
   success: boolean;
   stats: Stats;
@@ -115,9 +123,7 @@ export type LineResponse = {
   charts: Line;
 };
 
-
 export type UpdateOrderRequest = {
   userId: string;
   orderId: string;
 };
-

@@ -11,15 +11,15 @@ export const userReducer = createSlice({
   name: "userReducer",
   initialState,
   reducers: {
-    userExist: (state, action:PayloadAction<User>) => {
+    userExist: (state, action: PayloadAction<User>) => {
       state.loading = false;
       state.user = action.payload;
     },
     userNotExist: (state) => {
-        state.loading = false;
-        state.user = null;
-      },
+      state.loading = false;
+      state.user = null;
+    },
   },
 });
 
-export const {userExist,userNotExist}=userReducer.actions
+export const { userExist, userNotExist } = userReducer.actions;

@@ -14,10 +14,11 @@ import { RootState } from "../../redux/store";
 import { CustomError } from "../../types/api-types";
 import { Skeleton } from "../../components/Loader";
 import { Navigate } from "react-router-dom";
+import { getLastMonths } from "../../utils/features";
 
 const userImg =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp";
-
+const {  last6Months:months}=getLastMonths()
 const Dashboard = () => {
  const {user}=useSelector((state:RootState)=>state.userReducer)
  const {isLoading,data,isError}=useStatsQuery(user?._id!)
@@ -72,6 +73,7 @@ if(isError) return <Navigate to={"/"}/>
           <div className="revenue-chart">
             <h2>Revenue & Transaction</h2>
             <BarChart
+            labels={months}
               data_1={stats.chart.revenue}
               data_2={stats.chart.order}
               title_1="Revenue"

@@ -1,42 +1,53 @@
-import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import {server} from "../store"
-import { AllUserResponse, DeleteUserRequest, MessageResponse, UserResponse } from "../../types/api-types";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { server } from "../store";
+import {
+  AllUserResponse,
+  DeleteUserRequest,
+  MessageResponse,
+  UserResponse,
+} from "../../types/api-types";
 import { User } from "../../types/types";
 import axios from "axios";
 
-
-export const userAPI=createApi({reducerPath:"userApi",baseQuery:fetchBaseQuery({baseUrl:`${import.meta.env.VITE_SERVER}/api/v1/user/`}),
-tagTypes:["users"],
-endpoints:(builder)=>({
-    login:builder.mutation<MessageResponse,User>({
-    query:(user)=>({
-        url:"new",
+export const userAPI = createApi({
+  reducerPath: "userApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: `${import.meta.env.VITE_SERVER}/api/v1/user/`,
+  }),
+  tagTypes: ["users"],
+  endpoints: (builder) => ({
+    login: builder.mutation<MessageResponse, User>({
+      query: (user) => ({
+        url: "new",
         method: "POST",
-        body: user
+        body: user,
+      }),
+      invalidatesTags: ["users"],
     }),
-    invalidatesTags:["users"]
-}),
-allUsers:builder.query<AllUserResponse,string>({
-    query:id=>`all?id=${id}`,
-    providesTags:["users"]
-}),
-deleteUser:builder.mutation<MessageResponse,DeleteUserRequest>({
-    query:({userId,adminUserId})=>({
-        url:`${userId}?id=${adminUserId}`,
+    allUsers: builder.query<AllUserResponse, string>({
+      query: (id) => `all?id=${id}`,
+      providesTags: ["users"],
+    }),
+    deleteUser: builder.mutation<MessageResponse, DeleteUserRequest>({
+      query: ({ userId, adminUserId }) => ({
+        url: `${userId}?id=${adminUserId}`,
         method: "Delete",
-        
+      }),
+      invalidatesTags: ["users"],
     }),
-    invalidatesTags:["users"]
-}),
-})})
+  }),
+});
 
-export const getUser=async(id:String)=>{
-    try {
-        const {data}:{data:UserResponse}=await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/user/${id}`)
-        return data
-    } catch (error) {
-        throw error
-    }
-}
+export const getUser = async (id: String) => {
+  try {
+    const { data }: { data: UserResponse } = await axios.get(
+      `${import.meta.env.VITE_SERVER}/api/v1/user/${id}`
+    );
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
 
-export const {useLoginMutation,useAllUsersQuery,useDeleteUserMutation}=userAPI
+export const { useLoginMutation, useAllUsersQuery, useDeleteUserMutation } =
+  userAPI;

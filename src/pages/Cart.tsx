@@ -1,13 +1,13 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { VscError } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItems from "../components/CartItems";
 import { addToCart, calculatePrice, discountApplied, removeCartItem } from "../redux/reducer/cartReducer";
+import { server } from "../redux/store";
 import { CartReducerInitail } from "../types/reducer-types";
 import { CartItem } from "../types/types";
-import axios from "axios";
-import { server } from "../redux/store";
 const cartItem = [
   {
     productId:"skvdn",
