@@ -29,7 +29,7 @@ const {data,isError,isLoading}=useLatestProductsQuery("")
         <h1>Latest Product
         <Link to="/search" className='findmore'>More</Link>
         </h1>
-        <main>
+        <main className="main">
           { isLoading?<Skeleton width='80vw'/>:
             data?.products.map((i)=>{
           return <ProductCard key={i._id} productId={i._id} name={i.name} price={i.price} stock={i.stock} handler={addToCarthandler} photo={i.photo}/>
